@@ -17,13 +17,12 @@ const testEnvironment: Environment = {
 };
 
 const prodEnvironment: Environment = {
-  id: 'prod',
+  id: 'production',
   type: EnvironmentType.Production,
   public: true,
   name: 'Production',
   description: 'Production environment',
 };
-
 
 export function getEnvironment(): Environment {
   const environment = process.env.NODE_ENV;
@@ -31,7 +30,8 @@ export function getEnvironment(): Environment {
   if (environment === 'dev' || environment === 'development') {
     return devEnvironment;
   }
-  if (environment === 'prod' || environment === 'production') {
+  
+  if (environment === 'production') {
     return prodEnvironment;
   }
 
