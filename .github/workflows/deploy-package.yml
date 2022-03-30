@@ -31,7 +31,7 @@ jobs:
 
       - name: Run tests script
         run: yarn test
-        
+
   package:
     name: Deploy package
     runs-on: ubuntu-latest
