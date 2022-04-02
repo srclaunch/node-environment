@@ -1,38 +1,50 @@
 import { Environment, EnvironmentType } from '@srclaunch/types';
 
 const devEnvironment: Environment = {
-  id: 'dev',
-  type: EnvironmentType.Development,
-  public: false,
-  name: 'Development',
   description: 'Development environment',
+  id: 'dev',
+  name: 'Development',
+  public: false,
+  type: EnvironmentType.Development,
 };
 
 const testEnvironment: Environment = {
-  id: 'test',
-  type: EnvironmentType.NonProduction,
-  public: false,
-  name: 'Test',
   description: 'Test environment',
+  id: 'test',
+  name: 'Test',
+  public: false,
+  type: EnvironmentType.NonProduction,
 };
 
-const prodEnvironment: Environment = {
-  id: 'production',
-  type: EnvironmentType.Production,
-  public: true,
-  name: 'Production',
+const previewEnvironment: Environment = {
+  description: 'Preview environment',
+  id: 'preview',
+  name: 'Preview',
+  public: false,
+  type: EnvironmentType.NonProduction,
+};
+
+const productionEnvironment: Environment = {
   description: 'Production environment',
+  id: 'production',
+  name: 'Production',
+  public: true,
+  type: EnvironmentType.Production,
 };
 
 export function getEnvironment(): Environment {
   const environment = process.env.NODE_ENV;
 
-  if (environment === 'dev' || environment === 'development') {
-    return devEnvironment;
-  }
-  
-  if (environment === 'production') {
-    return prodEnvironment;
+  switch (environment) {
+    case 'dev':
+    case 'development':
+      return devEnvironment;
+    case 'test':
+      return testEnvironment;
+    case 'preview':
+      return previewEnvironment;
+    case 'production':
+      return productionEnvironment;
   }
 
   return testEnvironment;
