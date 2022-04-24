@@ -15089,28 +15089,24 @@ const devEnvironment = {
   description: "Development environment",
   id: "dev",
   name: "Development",
-  public: false,
   type: EnvironmentType.Development
 };
 const testEnvironment = {
   description: "Test environment",
   id: "test",
   name: "Test",
-  public: false,
   type: EnvironmentType.NonProduction
 };
 const previewEnvironment = {
   description: "Preview environment",
   id: "preview",
   name: "Preview",
-  public: false,
   type: EnvironmentType.NonProduction
 };
 const productionEnvironment = {
   description: "Production environment",
   id: "production",
   name: "Production",
-  public: true,
   type: EnvironmentType.Production
 };
 function getEnvironment() {
