@@ -1,35 +1,32 @@
+import { Environments } from '@srclaunch/types';
 import test from 'ava';
 import { getEnvironment } from '../index.js';
 
-
-
-test('returns development environment', (t) => {
+test('returns development environment', t => {
   // @ts-expect-error
   process = {
-      env: {
-        NODE_ENV: 'dev',
-    
-  }
+    env: {
+      NODE_ENV: 'dev',
+    },
   };
 
   const environment = getEnvironment();
 
-  t.is(environment.id, 'dev');
-})
+  t.is(environment.id, Environments.Development);
+});
 
-test('returns production environment', (t) => {
+test('returns production environment', t => {
   // @ts-expect-error
   process = {
-      env: {
-        NODE_ENV: 'production',
-      }
+    env: {
+      NODE_ENV: 'production',
+    },
   };
-
 
   const environment = getEnvironment();
 
-  t.is(environment.id, 'production');
-})
+  t.is(environment.id, Environments.Production);
+});
 
 // test('bar is being tested', async (t) => {
 //   const bar = Promise.resolve('bar');
