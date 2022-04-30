@@ -15129,7 +15129,7 @@ function getEnvironment() {
     case "production":
       return productionEnvironment;
   }
-  return testEnvironment;
+  return productionEnvironment;
 }
 
 export { getEnvironment };
