@@ -16,7 +16,7 @@ const testEnvironment: Environment = {
 
 const previewEnvironment: Environment = {
   description: 'Preview environment',
-  id:Environments.Preview,
+  id: Environments.Preview,
   name: 'Preview',
   type: EnvironmentType.NonProduction,
 };
@@ -43,5 +43,5 @@ export function getEnvironment(): Environment {
       return productionEnvironment;
   }
 
-  return testEnvironment;
+  return productionEnvironment;
 }
