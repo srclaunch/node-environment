@@ -7,9 +7,9 @@ import {
   CodeLinterTool,
   StaticTypingTool,
   License,
-  PackageAccess,
   Project,
   ProjectType,
+  PublishAccess,
   TestReporter,
   TestTool,
 } from '@srclaunch/types';
@@ -38,16 +38,15 @@ export default {
     },
   },
   release: {
-    package: {
-      publish: {
-        access: PackageAccess.Public,
-        license: License.MIT,
-        registry: 'https://registry.npmjs.org/',
-      },
+    publish: {
+      access: PublishAccess.Public,
+      license: License.MIT,
+      registry: 'https://registry.npmjs.org/',
     },
   },
   requirements: {
     node: '>=16',
+    yarn: '>=3.2.0',
     srclaunch: {
       dx: true,
       cli: true,
